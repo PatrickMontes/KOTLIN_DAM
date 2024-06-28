@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFE6BB">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="133dp"
+                android:layout_marginTop="49dp"
+                android:layout_marginEnd="1dp"
+                app:srcCompat="@drawable/logo" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginTop="28dp"
+                android:gravity="center_horizontal"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Regis"
+                    android:textSize="45sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/textView10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="trate"
+                    android:textSize="45sp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/inputNombre"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:paddingStart="12dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="33dp"
+                android:drawableStart="@drawable/baseline_person_24"
+                android:drawablePadding="12dp"
+                android:background="@drawable/edittext_background"
+                android:ems="10"
+                android:hint="Nombre Completo"
+                android:inputType="text" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/inputApellidoMaterno"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:drawableStart="@drawable/baseline_person_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="A. Materno"
+                    android:inputType="text"
+                    android:paddingStart="12dp" />
+
+                <EditText
+                    android:id="@+id/inputApellidoPaterno"
+                    android:layout_width="wrap_content"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="33dp"
+                    android:background="@drawable/edittext_background"
+                    android:drawableStart="@drawable/baseline_person_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="A. Paterno"
+                    android:inputType="text"
+                    android:paddingStart="12dp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/cboTipoDocumento"
+                    android:layout_width="180dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_spinner" />
+
+                <EditText
+                    android:id="@+id/inputDocumento"
+                    android:layout_width="165dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="33dp"
+                    android:background="@drawable/edittext_background"
+                    android:drawableStart="@drawable/baseline_co_present_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Documento"
+                    android:inputType="text"
+                    android:paddingStart="12dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/cboDepartamento"
+                    android:layout_width="165dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_spinner" />
+
+                <Spinner
+                    android:id="@+id/cboProvincia"
+                    android:layout_width="165dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_spinner" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <Spinner
+                    android:id="@+id/cboDistrito"
+                    android:layout_width="165dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/bg_spinner" />
+
+                <EditText
+                    android:id="@+id/inputTelefono"
+                    android:layout_width="165dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="33dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/edittext_background"
+                    android:drawableStart="@drawable/baseline_phone_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Telefono"
+                    android:inputType="text"
+                    android:paddingStart="12dp" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/inputDireccion"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginStart="33dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginEnd="33dp"
+                android:background="@drawable/edittext_background"
+                android:drawableStart="@drawable/baseline_location_on_24"
+                android:drawablePadding="12dp"
+                android:ems="10"
+                android:hint="Direccion"
+                android:inputType="text"
+                android:paddingStart="12dp" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnRegistrarse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="32dp"
+                android:background="@drawable/blue_button_background"
+                android:text="Registrarse"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="¿Tienes una cuenta?"
+
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/btnLogin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="4dp"
+                    android:text="INICIA SESION"
+                    android:textColor="@color/blue_2"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
