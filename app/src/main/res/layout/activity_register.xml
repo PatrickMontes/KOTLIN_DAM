@@ -19,14 +19,14 @@
                 android:id="@+id/imageView"
                 android:layout_width="match_parent"
                 android:layout_height="133dp"
-                android:layout_marginTop="49dp"
+                android:layout_marginTop="19dp"
                 android:layout_marginEnd="1dp"
                 app:srcCompat="@drawable/logo" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="10dp"
                 android:gravity="center_horizontal"
                 android:orientation="horizontal">
 
@@ -48,19 +48,55 @@
             </LinearLayout>
 
             <EditText
-                android:id="@+id/inputNombre"
+                android:id="@+id/inputCorreo"
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
-                android:paddingStart="12dp"
                 android:layout_marginStart="33dp"
                 android:layout_marginTop="25dp"
                 android:layout_marginEnd="33dp"
-                android:drawableStart="@drawable/baseline_person_24"
-                android:drawablePadding="12dp"
                 android:background="@drawable/edittext_background"
+                android:drawableStart="@drawable/baseline_email_24"
+                android:drawablePadding="12dp"
                 android:ems="10"
-                android:hint="Nombre Completo"
-                android:inputType="text" />
+                android:hint="Email"
+                android:inputType="text"
+                android:paddingStart="12dp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/inputPass"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="33dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/edittext_background"
+                    android:drawableStart="@drawable/baseline_password_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Contraseña"
+                    android:inputType="text"
+                    android:paddingStart="12dp" />
+
+                <EditText
+                    android:id="@+id/inputNombre"
+                    android:layout_width="160dp"
+                    android:layout_height="50dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="33dp"
+                    android:background="@drawable/edittext_background"
+                    android:drawableStart="@drawable/baseline_person_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Nombre"
+                    android:inputType="text"
+                    android:paddingStart="12dp" />
+            </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -218,6 +254,7 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginTop="-15dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
