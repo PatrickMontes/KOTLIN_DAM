@@ -6,18 +6,18 @@ import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import com.cibertec.bembos.R
 
-class LoginActivity : AppCompatActivity() {
+class RegisterActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_register)
 
         // Buscar el TextView por su ID
-        val btnRegistrarte = findViewById<TextView>(R.id.btnRegistrarte)
+        val btnLogin = findViewById<TextView>(R.id.btnLogin)
 
         // Configurar OnClickListener para el TextView
-        btnRegistrarte.setOnClickListener {
-            val intent = Intent(this, RegisterActivity::class.java)
+        btnLogin.setOnClickListener {
+            val intent = Intent(this, LoginActivity::class.java)
             startActivity(intent)
         }
     }
