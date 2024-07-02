@@ -141,15 +141,20 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/cboTipoDocumento"
-                    android:layout_width="180dp"
+                <EditText
+                    android:id="@+id/inputTipoDocumento"
+                    android:layout_width="165dp"
                     android:layout_height="50dp"
                     android:layout_marginStart="33dp"
                     android:layout_marginTop="25dp"
                     android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_spinner" />
+                    android:background="@drawable/edittext_background"
+                    android:drawableStart="@drawable/baseline_co_present_24"
+                    android:drawablePadding="12dp"
+                    android:ems="10"
+                    android:hint="Tipo D."
+                    android:inputType="text"
+                    android:paddingStart="12dp" />
 
                 <EditText
                     android:id="@+id/inputDocumento"

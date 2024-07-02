@@ -1,7 +1,10 @@
-package com.example.myapp.models
+package com.cibertec.bembos.models
 
 data class Province(
-    val id: Int?,
-    val nombre: String?,
-    val department_id: Department?  // Relación con Department
-)
+    val id: Int,
+    val name: String
+) {
+    override fun toString(): String {
+        return name
+    }
+}

@@ -6,10 +6,10 @@ import com.google.gson.annotations.SerializedName
 class Category {
     @SerializedName("id")
     @Expose
-    private var id = 0
+    var id = 0
     @SerializedName("nombre")
     @Expose
-    private var nombre: String? = null
+    var nombre: String? = null
 
     /**CONSTRUCTORES */
     fun Category() {}
