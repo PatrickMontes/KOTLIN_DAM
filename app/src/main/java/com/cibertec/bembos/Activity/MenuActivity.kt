@@ -2,9 +2,11 @@ package com.cibertec.bembos.Activity
 
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.cibertec.bembos.R
 import com.cibertec.bembos.adapter.AdapterCategoria
@@ -18,34 +20,38 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MenuActivity : AppCompatActivity() {
-    private lateinit var recyclerView: RecyclerView
-    private var categoriaService: CategoryService? = null
+
+    private lateinit var categoryRecyclerView: RecyclerView
+    private lateinit var categoryAdapter: AdapterCategoria
+    private val categories = mutableListOf<Category>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        recyclerView = findViewById(R.id.listCategoria)
-        categoriaService = ApiUtil.categoriaService
+        categoryRecyclerView = findViewById(R.id.listCategoria)
+        categoryAdapter = AdapterCategoria(categories)
+        categoryRecyclerView.adapter = categoryAdapter
+        categoryRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
         fetchCategories()
     }
 
     private fun fetchCategories() {
-        val call: Call<List<Category>> = categoriaService!!.getCategory()
-        call.enqueue(object : Callback<List<Category>> {
+        val categoryService = ApiUtil.categoriaService
+        categoryService?.getCategory()?.enqueue(object : Callback<List<Category>> {
             override fun onResponse(call: Call<List<Category>>, response: Response<List<Category>>) {
                 if (response.isSuccessful) {
-                    val categories: List<Category> = response.body()!!
-                    val adapter = AdapterCategoria(this@MenuActivity, categories)
-                    recyclerView.adapter = adapter
-                } else {
-                    Toast.makeText(this@MenuActivity, "Error al obtener categorías", Toast.LENGTH_SHORT).show()
+                    response.body()?.let {
+                        categories.clear()
+                        categories.addAll(it)
+                        categoryAdapter.notifyDataSetChanged()
+                    }
                 }
             }
 
             override fun onFailure(call: Call<List<Category>>, t: Throwable) {
-                Toast.makeText(this@MenuActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
+                Log.e("MenuActivity", "Error fetching categories", t)
             }
         })
     }

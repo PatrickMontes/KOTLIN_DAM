@@ -7,25 +7,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.cibertec.bembos.R
 import com.cibertec.bembos.models.Category
-class AdapterCategoria(private val context: Context, private val listacategoria: List<Category>) :
-    RecyclerView.Adapter<AdapterCategoria.ViewHolder>() {
+class AdapterCategoria(private val categories: List<Category>) : RecyclerView.Adapter<AdapterCategoria.CategoryViewHolder>() {
 
-
-    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val txtCategory: TextView = itemView.findViewById(R.id.txtCategory)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.viewholder_category, parent, false)
+        return CategoryViewHolder(view)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.viewholder_category, parent, false)
-        return ViewHolder(view)
-    }
-
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val categoria = listacategoria[position]
-        holder.txtCategory.text = categoria.nombre
+    override fun onBindViewHolder(holder: CategoryViewHolder, position: Int) {
+        holder.bind(categories[position])
     }
 
     override fun getItemCount(): Int {
-        return listacategoria.size
+        return categories.size
+    }
+
+    class CategoryViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        private val categoryName: TextView = itemView.findViewById(R.id.txtCategory)
+
+        fun bind(category: Category) {
+            categoryName.text = category.nombre
+        }
     }
 }
