@@ -3,35 +3,11 @@ package com.cibertec.bembos.models
 import com.google.gson.annotations.Expose
 import com.google.gson.annotations.SerializedName
 
-class Category {
+data class Category (
     @SerializedName("id")
     @Expose
-    var id = 0
+    var id: Int = 0,
     @SerializedName("nombre")
     @Expose
     var nombre: String? = null
-
-    /**CONSTRUCTORES */
-    fun Category() {}
-    fun Category(id: Int, nombre: String?) {
-        this.id = id
-        this.nombre = nombre
-    }
-
-    /**GETTERS Y SETTERS */
-    fun getId(): Int {
-        return id
-    }
-
-    fun setId(id: Int) {
-        this.id = id
-    }
-
-    fun getNombre(): String? {
-        return nombre
-    }
-
-    fun setNombre(nombre: String?) {
-        this.nombre = nombre
-    }
-}
+)

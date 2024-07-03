@@ -1,4 +1,4 @@
-package com.cibertec.bembos.Activity;
+package com.cibertec.bembos.Activity
 
-public class DetalleProductoActivity {
+class DetalleProductoActivity {
 }
