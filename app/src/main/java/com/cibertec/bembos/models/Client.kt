@@ -10,9 +10,6 @@ data class Client(
     var tipodocumento: String? = null,
     var numdocumento: String? = null,
     var direccion: String? = null,
-    var departamento_id: Department? = null,
-    var provincia_id: Province? = null,
-    var distrito_id: District? = null,
     var telefono: String? = null,
     var email: String? = null,
     var clave: String? = null

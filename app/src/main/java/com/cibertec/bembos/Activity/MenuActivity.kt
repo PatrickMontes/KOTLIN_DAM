@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.widget.ListView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.RecyclerView
 import com.cibertec.bembos.R
 import com.cibertec.bembos.adapter.AdapterCategoria
 
@@ -17,14 +18,14 @@ import retrofit2.Callback
 import retrofit2.Response
 
 class MenuActivity : AppCompatActivity() {
-    private lateinit var listView: ListView
+    private lateinit var recyclerView: RecyclerView
     private var categoriaService: CategoryService? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_menu)
 
-        listView = findViewById(R.id.listCategoria)
+        recyclerView = findViewById(R.id.listCategoria)
         categoriaService = ApiUtil.categoriaService
 
         fetchCategories()
@@ -37,7 +38,7 @@ class MenuActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val categories: List<Category> = response.body()!!
                     val adapter = AdapterCategoria(this@MenuActivity, categories)
-                    listView.adapter = adapter
+                    recyclerView.adapter = adapter
                 } else {
                     Toast.makeText(this@MenuActivity, "Error al obtener categorías", Toast.LENGTH_SHORT).show()
                 }

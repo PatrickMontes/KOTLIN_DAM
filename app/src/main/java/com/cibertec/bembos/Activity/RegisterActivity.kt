@@ -2,25 +2,18 @@ package com.cibertec.bembos.Activity
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.cibertec.bembos.R
 import com.cibertec.bembos.remote.ApiUtil
-import com.example.myapp.api.ClientService
 import com.example.myapp.models.Client
-import com.cibertec.bembos.models.Department
-import com.cibertec.bembos.models.District
-import com.cibertec.bembos.models.Province
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
 class RegisterActivity : AppCompatActivity() {
 
-    private lateinit var cboDepartamento: Spinner
-    private lateinit var cboProvincia: Spinner
-    private lateinit var cboDistrito: Spinner
+
     private lateinit var inputCorreo: EditText
     private lateinit var inputPass: EditText
     private lateinit var inputNombre: EditText
@@ -36,9 +29,7 @@ class RegisterActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
-        cboDepartamento = findViewById(R.id.cboDepartamento)
-        cboProvincia = findViewById(R.id.cboProvincia)
-        cboDistrito = findViewById(R.id.cboDistrito)
+
         inputCorreo = findViewById(R.id.inputCorreo)
         inputPass = findViewById(R.id.inputPass)
         inputNombre = findViewById(R.id.inputNombre)
@@ -50,87 +41,14 @@ class RegisterActivity : AppCompatActivity() {
         inputDireccion = findViewById(R.id.inputDireccion)
         btnRegistrarse = findViewById(R.id.btnRegistrarse)
 
-        // Load spinners
-        loadDepartments()
-        loadProvinces()
-        loadDistricts()
-
         btnRegistrarse.setOnClickListener {
             registerUser()
         }
     }
 
-    private fun loadDepartments() {
-        val departmentService = ApiUtil.departmentService
-        departmentService?.getDepartments()?.enqueue(object : Callback<List<Department>> {
-            override fun onResponse(call: Call<List<Department>>, response: Response<List<Department>>) {
-                if (response.isSuccessful) {
-                    val departments = response.body()
-                    departments?.forEach { department ->
-                        Log.d("RegisterActivity", "Department: ${department.name}")
-                    }
-                    val departmentNames = departments?.map { it.name ?: "Unknown" } ?: emptyList()
-                    val adapter = ArrayAdapter(this@RegisterActivity, android.R.layout.simple_spinner_item, departmentNames)
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    cboDepartamento.adapter = adapter
-                } else {
-                    Toast.makeText(this@RegisterActivity, "Error al cargar departamentos", Toast.LENGTH_SHORT).show()
-                }
-            }
 
-            override fun onFailure(call: Call<List<Department>>, t: Throwable) {
-                Toast.makeText(this@RegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
 
-    private fun loadProvinces() {
-        val provinceService = ApiUtil.provinceService
-        provinceService?.getProvinces()?.enqueue(object : Callback<List<Province>> {
-            override fun onResponse(call: Call<List<Province>>, response: Response<List<Province>>) {
-                if (response.isSuccessful) {
-                    val provinces = response.body()
-                    provinces?.forEach { province ->
-                        Log.d("RegisterActivity", "Province: ${province.name}")
-                    }
-                    val provinceNames = provinces?.map { it.name ?: "Unknown" } ?: emptyList()
-                    val adapter = ArrayAdapter(this@RegisterActivity, android.R.layout.simple_spinner_item, provinceNames)
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    cboProvincia.adapter = adapter
-                } else {
-                    Toast.makeText(this@RegisterActivity, "Error al cargar provincias", Toast.LENGTH_SHORT).show()
-                }
-            }
 
-            override fun onFailure(call: Call<List<Province>>, t: Throwable) {
-                Toast.makeText(this@RegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
-
-    private fun loadDistricts() {
-        val districtService = ApiUtil.districtService
-        districtService?.getDistricts()?.enqueue(object : Callback<List<District>> {
-            override fun onResponse(call: Call<List<District>>, response: Response<List<District>>) {
-                if (response.isSuccessful) {
-                    val districts = response.body()
-                    districts?.forEach { district ->
-                        Log.d("RegisterActivity", "District: ${district.name}")
-                    }
-                    val districtNames = districts?.map { it.name ?: "Unknown" } ?: emptyList()
-                    val adapter = ArrayAdapter(this@RegisterActivity, android.R.layout.simple_spinner_item, districtNames)
-                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
-                    cboDistrito.adapter = adapter
-                } else {
-                    Toast.makeText(this@RegisterActivity, "Error al cargar distritos", Toast.LENGTH_SHORT).show()
-                }
-            }
-
-            override fun onFailure(call: Call<List<District>>, t: Throwable) {
-                Toast.makeText(this@RegisterActivity, "Error: ${t.message}", Toast.LENGTH_SHORT).show()
-            }
-        })
-    }
 
 
 
@@ -170,7 +88,7 @@ class RegisterActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     Toast.makeText(this@RegisterActivity, "Registro exitoso", Toast.LENGTH_SHORT).show()
                     // Redirect to LoginActivity
-                    val intent = Intent(this@RegisterActivity, LoginActivity::class.java)
+                    val intent = Intent(this@RegisterActivity, MenuActivity::class.java)
                     startActivity(intent)
                     finish()  // Optional: Finish RegisterActivity to remove it from the back stack
                 } else {

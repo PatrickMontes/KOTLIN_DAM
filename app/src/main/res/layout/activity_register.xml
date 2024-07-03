@@ -175,48 +175,17 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
-
-                <Spinner
-                    android:id="@+id/cboDepartamento"
-                    android:layout_width="165dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="33dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_spinner" />
-
-                <Spinner
-                    android:id="@+id/cboProvincia"
-                    android:layout_width="165dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="10dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="33dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_spinner" />
-            </LinearLayout>
+                android:orientation="horizontal"/>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
-                <Spinner
-                    android:id="@+id/cboDistrito"
-                    android:layout_width="165dp"
-                    android:layout_height="50dp"
-                    android:layout_marginStart="33dp"
-                    android:layout_marginTop="25dp"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/bg_spinner" />
-
                 <EditText
                     android:id="@+id/inputTelefono"
-                    android:layout_width="165dp"
-                    android:layout_height="50dp"
+                    android:layout_width="393dp"
+                    android:layout_height="53dp"
                     android:layout_marginStart="10dp"
                     android:layout_marginTop="25dp"
                     android:layout_marginEnd="33dp"

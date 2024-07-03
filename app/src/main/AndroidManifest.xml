@@ -28,6 +28,7 @@
         <activity android:name=".Activity.RegisterActivity" android:exported="true"/>
         <activity android:name=".Activity.MenuActivity" android:exported="true"/>
 
+
     </application>
 
 </manifest>

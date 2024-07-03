@@ -1,9 +1,9 @@
 package com.example.myapp.api
 
+import com.cibertec.bembos.models.LoginRequest
+import com.cibertec.bembos.models.LoginResponse
 import com.example.myapp.models.Client
-import com.cibertec.bembos.models.Department
-import com.cibertec.bembos.models.District
-import com.cibertec.bembos.models.Province
+
 import com.cibertec.bembos.models.SignInResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -15,6 +15,6 @@ interface ClientService {
     @POST("api/client/createClient")
     fun createClient(@Body client: Client): Call<Client>
 
-    @POST("api/client/signin")
-    fun signin(@Body client: Client): Call<SignInResponse>
+    @POST("api/client/login")
+    fun login(@Body request: LoginRequest): Call<LoginResponse>
 }

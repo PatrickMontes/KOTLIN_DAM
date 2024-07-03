@@ -1,45 +1,31 @@
 package com.cibertec.bembos.adapter
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.cibertec.bembos.R
 import com.cibertec.bembos.models.Category
+class AdapterCategoria(private val context: Context, private val listacategoria: List<Category>) :
+    RecyclerView.Adapter<AdapterCategoria.ViewHolder>() {
 
-class AdapterCategoria  (context: Context?, private val listacategoria:List<Category>?): BaseAdapter() {
-    private val layoutInflater: LayoutInflater
 
-    init {
-        layoutInflater=LayoutInflater.from(context)
+    inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        val txtCategory: TextView = itemView.findViewById(R.id.txtCategory)
     }
 
-    override fun getCount(): Int {
-        return listacategoria!!.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.viewholder_category, parent, false)
+        return ViewHolder(view)
     }
 
-    override fun getItem(p0: Int): Any {
-        return listacategoria!![p0]
+    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+        val categoria = listacategoria[position]
+        holder.txtCategory.text = categoria.nombre
     }
 
-
-    override fun getItemId(p0: Int): Long {
-        return p0.toLong()
-    }
-
-    override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
-        var vista = p1;
-        if(vista == null ){
-            //relacionamos la vista con el layout correspondiente
-            vista=layoutInflater.inflate(R.layout.viewholder_category,p2,false)
-            val objcategoria=getItem(p0) as Category
-            //creamos los controles
-            val txtCategory= vista!!.findViewById<TextView>(R.id.txtCategory)
-            //agregamos los valores a la lista
-            txtCategory.text=""+objcategoria.nombre
-        }
-        return vista!!;
+    override fun getItemCount(): Int {
+        return listacategoria.size
     }
 }
