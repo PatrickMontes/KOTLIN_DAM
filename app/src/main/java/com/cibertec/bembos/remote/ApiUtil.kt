@@ -9,4 +9,6 @@ object ApiUtil {
     val categoriaService: CategoryService? get() = RetrofitClient.getClient(API_URL)?.create(CategoryService::class.java)
     val clientService: ClientService? get() = RetrofitClient.getClient(API_URL)?.create(ClientService::class.java)
 
+    val productService: ProductService? get()  = RetrofitClient.getClient(API_URL)?.create(ProductService::class.java)
+
 }

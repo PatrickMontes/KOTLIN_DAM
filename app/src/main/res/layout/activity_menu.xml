@@ -9,7 +9,9 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="0dp"
+        tools:layout_editor_absoluteY="16dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -115,24 +117,28 @@
                         app:layout_constraintTop_toTopOf="parent"
                         tools:textSize="25dp" />
 
-                    <androidx.recyclerview.widget.RecyclerView
-                        android:id="@+id/listCategoria"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginTop="10dp"
-                        android:layout_marginEnd="32dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/txtCategoria" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/txtCategoria">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/listCategoria"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginTop="10dp"
+                            android:layout_marginEnd="32dp" />
+                    </LinearLayout>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:id="@+id/constraintLayout"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_marginTop="258dp"
-                    app:layout_constraintTop_toTopOf="@+id/constraintLayout3">
+                    app:layout_constraintTop_toBottomOf="@+id/constraintLayout3">
 
                     <TextView
                         android:id="@+id/textView9"
@@ -146,34 +152,40 @@
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <androidx.recyclerview.widget.RecyclerView
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="32dp"
-                        android:layout_marginEnd="32dp"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        tools:layout_editor_absoluteY="64dp" />
+                        android:orientation="horizontal"
+                        app:layout_constraintTop_toBottomOf="@+id/textView9">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/listProducts"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="32dp"
+                            android:layout_marginEnd="32dp" />
+                    </LinearLayout>
+
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.coordinatorlayout.widget.CoordinatorLayout
                     android:layout_width="match_parent"
                     android:layout_height="60dp"
                     android:layout_marginStart="12dp"
-                    android:layout_marginTop="24dp"
                     android:layout_marginEnd="12dp"
+                    android:layout_marginBottom="5dp"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.0"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/constraintLayout"
-                    app:layout_constraintVertical_bias="1.0" >
+                    app:layout_constraintVertical_bias="1.0">
 
                     <com.google.android.material.bottomnavigation.BottomNavigationView
                         android:layout_width="match_parent"
                         android:layout_height="60dp"
                         android:layout_gravity="bottom"
-                        android:background="@drawable/bg_banner" >
+                        android:background="@drawable/bg_banner">
 
                         <LinearLayout
                             android:layout_width="match_parent"
