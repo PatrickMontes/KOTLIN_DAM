@@ -42,7 +42,7 @@ class MenuActivity : AppCompatActivity() {
         categoryRecyclerView.adapter = categoryAdapter
         categoryRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
 
-        productRecyclerView = findViewById(R.id.listProducts)
+        productRecyclerView = findViewById(R.id.listProducts) // Asegúrate de que listProductos sea el RecyclerView correcto
         productAdapter = ProductAdapter(products)
         productRecyclerView.adapter = productAdapter
         productRecyclerView.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)

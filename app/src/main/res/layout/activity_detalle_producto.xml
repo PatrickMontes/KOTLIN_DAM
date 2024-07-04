@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFE6BB">
+    android:background="#FFE6BB"
+    tools:context=".Activity.DetalleProductoActivity">
 
     <ScrollView
         android:layout_width="match_parent"

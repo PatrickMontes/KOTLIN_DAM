@@ -27,7 +27,7 @@
         <activity android:name=".Activity.LoginActivity" android:exported="true"/>
         <activity android:name=".Activity.RegisterActivity" android:exported="true"/>
         <activity android:name=".Activity.MenuActivity" android:exported="true"/>
-
+        <activity android:name=".Activity.DetalleProductoActivity" android:exported="true"/>
 
     </application>
 
